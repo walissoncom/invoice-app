@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 * {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.company {
+  height: 100vh;
+  padding: 100px 20px;
+  background: linear-gradient(0deg, rgba(189,195,199,1) 0%, rgba(44,62,80,1) 100%);
+  background-color: #212629;
+  color: #FFF;
+}
+
+.company > h1 {
+  font-size: 46px;
+}
+
+.invoices {
+  padding: 100px 20px 100px 100px !important;
+}
+
+.pending-title {
+  margin-bottom: 75px;
+}
+
+.pending-title > h3 {
+  font-size: 36px;
 }

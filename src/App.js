@@ -3,6 +3,8 @@ import { Table, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown, faSearchDollar } from '@fortawesome/free-solid-svg-icons';
 
+import './App.css';
+
 class App extends Component {
 
     // State
@@ -44,53 +46,55 @@ class App extends Component {
         // Build invoices table rows with the data retireved from API
         let invoices = allInvoices.map(invoice =>
             <tr key={invoice.Id}>
+                <td>{invoice.Invoice}</td>
                 <td>{invoice.Vendor}</td>
                 <td>{invoice.Amount}</td>
-                <td>{invoice.Invoice}</td>
                 <td>{invoice.Date}</td>
                 <td>
                     <Button className="btn btn-lg btn-success" onClick={() => this.remove(invoice.Id)}>
-                        <FontAwesomeIcon icon={faThumbsUp} /> OK
+                        <FontAwesomeIcon icon={faThumbsUp} />
                     </Button>
                 </td>
                 <td>
                     <Button className="btn btn-lg btn-danger" onClick={() => this.remove(invoice.Id)}>
-                        <FontAwesomeIcon icon={faThumbsDown} /> NOK
+                        <FontAwesomeIcon icon={faThumbsDown} />
                     </Button>
                 </td>
                 <td>
                     <Button className="btn btn-lg btn-warning" onClick={() => this.remove(invoice.Id)}>
-                        <FontAwesomeIcon icon={faSearchDollar} /> ??
+                        <FontAwesomeIcon icon={faSearchDollar} />
                     </Button>
                 </td>
             </tr>
         )
 
         return (
-            <div className="container border border-secondary rouded center">
+            <div className="container-xl center">
 
                 <div className="row">
-                    <div className="col-12">
-                        <h4>Pending Invoices - The Dev Company</h4>
+                    <div className="col-md-12 col-lg-3 company">
+                        <h1>The Dev Company</h1>
                     </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-xs-12 center text-center">
-                        <Table dark responsive striped bordered hover>
-                            <thead>
-                                <tr>
-                                    <th>Vendor</th>
-                                    <th>Amount</th>
-                                    <th>Invoice #</th>
-                                    <th>Date</th>
-                                    <th colSpan="3">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.invoices.length === 0 ? <tr><td colSpan="7">All caught up!</td></tr> : invoices}
-                            </tbody>
-                        </Table>
+                    <div className="col-md-12 col-lg-9 text-center invoices">
+                        <div className="pending-title text-right">
+                            <h3>Pending Invoices.</h3>
+                        </div>
+                        <div className="center text-center">
+                            <Table responsive striped bordered hover>
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Vendor</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th colSpan="3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.state.invoices.length === 0 ? <tr><td colSpan="7">All caught up!</td></tr> : invoices}
+                                </tbody>
+                            </Table>
+                        </div>
                     </div>
                 </div>
             </div>
