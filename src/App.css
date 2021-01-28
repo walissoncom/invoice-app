@@ -28,3 +28,34 @@
 .pending-title > h3 {
   font-size: 36px;
 }
+
+/*
+ * MEDIA QUERY
+ */
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+  .company {
+    height: auto;
+    padding: 20px;
+    background: linear-gradient(0deg, rgba(189,195,199,1) -75%, rgba(44,62,80,1) 100%);
+  }
+
+  .company > h1 {
+    font-size: 38px;
+    margin-bottom: 0;
+  }
+
+  .invoices {
+    padding: 50px 20px !important;
+  }
+
+  .pending-title {
+    margin-bottom: 50px;
+  }
+  
+  .pending-title > h3 {
+    font-size: 26px;
+  }
+}
